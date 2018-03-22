@@ -49,9 +49,7 @@ export default {
         .then(response => {
           alert(JSON.stringify(response.data))
         })
-        .catch(e => {
-          console.log(e)
-        })
+        .catch(e => { console.log(e) })
     }
   }
 }

@@ -16,7 +16,6 @@
 </template>
 
 <script>
-
 import axios from 'axios'
 
 export default {
@@ -31,9 +30,7 @@ export default {
       .then(response => {
         this.obj = response.data
       })
-      .catch(e => {
-        console.log(e)
-      })
+      .catch(e => { console.log(e) })
   }
 }
 </script>

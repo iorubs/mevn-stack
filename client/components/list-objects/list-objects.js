@@ -17,9 +17,7 @@ export default {
       .then(response => {
         this.objects = response.data
       })
-      .catch(e => {
-        console.log(e)
-      })
+      .catch(e => { console.log(e) })
   },
   methods: {
     details (obj) {
@@ -41,9 +39,7 @@ export default {
             return obj._id !== objId
           })
         })
-        .catch(e => {
-          console.log(e)
-        })
+        .catch(e => { console.log(e) })
     }
   }
 }
