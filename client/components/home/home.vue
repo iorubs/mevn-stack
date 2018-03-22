@@ -4,7 +4,7 @@
 
     <img src="@/assets/logo.png">
 
-    <h1>{{ msg }}</h1>
+    <h2 class="hello">{{ msg }}</h2>
   </div>
 </template>
 
