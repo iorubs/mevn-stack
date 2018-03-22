@@ -1,0 +1,68 @@
+version: '3.4'
+
+services:
+  setup:
+    build: .
+    image: purehub
+    command: sh -c "npm install"
+    volumes:
+      - ./:/app
+
+  client:
+    image: purehub
+    command: sh -c "npm run start:client"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+    depends_on:
+      - server
+
+  server:
+    image: purehub
+    environment:
+      MONGO_URI: mongodb://db:27017/voting-app
+      NODE_ENV: development
+    command: sh -c "npm run start:server"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    depends_on:
+      - db
+
+  db:
+    image: mongo:3.7
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:27017"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  lint:
+    image: purehub
+    command: sh -c "npm run lint"
+
+  unit-test:
+    image: purehub
+    command: sh -c "npm run unit"
+
+  e2e-test:
+    image: purehub
+    command: sh -c "npm run e2e"
+    environment:
+      HOST: e2e-test
+    depends_on:
+      - selenium
+
+  selenium:
+    image: selenium/standalone-chrome:3.7
+    expose:
+      - 4444
