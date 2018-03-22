@@ -10,7 +10,7 @@
             <b-button-group>
              <b-button variant="info" @click="details(row.item)">Details</b-button>
              <b-button variant="primary" @click="update(row.item)">Update</b-button>
-             <b-button variant="danger" @click="remove(row.item)">Remove</b-button>
+             <b-button variant="danger" @click="remove(row.item._id)">Remove</b-button>
            </b-button-group>
           </template>
         </b-table>
