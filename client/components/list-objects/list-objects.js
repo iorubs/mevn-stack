@@ -28,7 +28,7 @@ export default {
     },
     update (obj) {
       this.$router.push({
-        name: 'ShowObject',
+        name: 'UpdateObject',
         params: { id: obj._id }
       })
     },
