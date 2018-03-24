@@ -1,7 +1,7 @@
 {
-  "name": "paaspure-hub",
+  "name": "mevn-stack-template",
   "version": "1.0.0",
-  "description": "Central Hub for sharing PaaSPure repositories.",
+  "description": "Template for a new MEVN project (Mongo + Express + VueJS + NodeJS), with Bootstrap 4, Docker setup and examples.",
   "author": "Ruben Vasconcelos",
   "private": true,
   "scripts": {
