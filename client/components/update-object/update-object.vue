@@ -46,8 +46,8 @@ export default {
     onSubmit (evt) {
       evt.preventDefault()
       axios.put(`api/sample-object/` + this.$route.params.id, this.form)
-        .then(response => {
-          alert(JSON.stringify(response.data))
+        .then(() => {
+          alert(JSON.stringify(this.form))
         })
         .catch(e => { console.log(e) })
     }

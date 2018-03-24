@@ -21,7 +21,6 @@ const get = function (req, res, next) {
 }
 
 const update = function (req, res, next) {
-  console.log(req.params.id)
   SampleObject.findByIdAndUpdate(req.params.id, req.body, (err, obj) => {
     if (err) return next(err)
     res.json(obj)

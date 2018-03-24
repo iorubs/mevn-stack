@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
-import Home from '@/components/home/home'
 
 import '@/style/main.scss'
 
+import Home from '@/components/home/home'
 import ListObjects from '@/components/list-objects/list-objects.vue'
 import CreateObject from '@/components/create-object/create-object'
 import ShowObject from '@/components/show-object/show-object'

@@ -29,7 +29,8 @@ export default {
     update (obj) {
       this.$router.push({
         name: 'UpdateObject',
-        params: { id: obj._id }
+        params: { id: obj._id },
+        body: obj
       })
     },
     remove (objId) {
