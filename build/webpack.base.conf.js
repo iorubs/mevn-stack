@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const copyWebpackPlugin = require('copy-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -49,7 +50,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('client'), resolve('test'), resolve('node_modules/webpack-dev-server/client'), resolve('server')]
+        include: [
+            resolve('client'),
+            resolve('test'),
+            resolve('node_modules/webpack-dev-server/client'),
+            resolve('server')
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -77,6 +83,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new copyWebpackPlugin([
+      {from: './client/assets/logo.png', to: 'favicon.png'}
+    ])
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
